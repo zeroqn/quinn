@@ -331,6 +331,11 @@ impl Connection {
     pub fn force_key_update(&self) {
         self.0.lock().unwrap().inner.initiate_key_update()
     }
+
+    /// The peer's der format serialized certificate
+    pub fn peer_der_certificates(&self) -> Option<Vec<Vec<u8>>> {
+        self.0.lock().unwrap().inner.peer_der_certificates()
+    }
 }
 
 /// A stream of unidirectional QUIC streams initiated by a remote peer.

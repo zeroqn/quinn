@@ -265,6 +265,11 @@ where
         this
     }
 
+    /// Returns peer der serialized certificates
+    pub fn peer_der_certificates(&self) -> Option<Vec<Vec<u8>>> {
+        self.tls.peer_der_certificates()
+    }
+
     /// Returns timer updates
     ///
     /// Connections should be polled for timer updates after:
