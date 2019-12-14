@@ -138,6 +138,14 @@ impl crypto::Session for TlsSession {
             secrets.server,
         )
     }
+
+    fn peer_der_certificates(&self) -> Option<Vec<Vec<u8>>> {
+        let session = &*self;
+
+        session
+            .get_peer_certificates()
+            .map(|certs| certs.into_iter().map(|cert| cert.0).collect())
+    }
 }
 
 impl Deref for TlsSession {

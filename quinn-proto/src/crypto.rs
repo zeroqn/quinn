@@ -80,6 +80,9 @@ pub trait Session: Sized {
 
     /// Update the given set of keys
     fn update_keys(&self, keys: &Self::Keys) -> Self::Keys;
+
+    /// The peer's der serialized certificates
+    fn peer_der_certificates(&self) -> Option<Vec<Vec<u8>>>;
 }
 
 /// Client-side configuration for the crypto protocol
